@@ -8,13 +8,14 @@ export const MyContext = createContext()
 class MyProvider extends Component {
   state = {
     loggedUser: false,
-    file: {},
+    
     formSignup: {
       name: '',
       email: '',
       password: '',
       companyname:'',
       number: '',
+      file: '',
 
     },
     loginForm: {

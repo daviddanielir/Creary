@@ -68,19 +68,15 @@ export default function SignupContainer(props) {
             />
           </Form.Item>
 
-{/* 
+
            <div>
             <input onChange={context.handleFile} type="file" name="file" />
             <input onClick={context.handleSignup} type="submit" value="Send photo"  hidden/>
             </div>
-       */}
-
-
-      {/* //foto de usuario */}
-        
-
+    
+    
           <Form.Item>
-            <Button type="primary" htmlType="submit" >
+            <Button type="primary" htmlType="submit" onClick={context.handleSignup} type="submit" value="Send photo">
               Signup
             </Button>
           </Form.Item>

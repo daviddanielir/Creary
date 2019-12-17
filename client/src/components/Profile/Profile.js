@@ -40,6 +40,7 @@ export default function Profile() {
     hoverable
     style={{ width: 240 }}
     cover={<img alt="example" src= {context.user.file} />}
+    // NO SALE LA FOTO FILE
   >
 
 

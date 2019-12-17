@@ -32,16 +32,16 @@ export default function Home() {
 
   <Carousel autoplay>
     <div>
-      <h3>¡El primer creador de Catalos Online para dar a conocer los productos de tu negocio! 📲</h3>
+      <h3>¡El primer creador de Catalos Online para dar a conocer los productos de tu negocio! in <span role="img" aria-label="sheep">📲</span></h3>
     </div>
     <div>
-      <h3>¡Crea un perfil con tus datos de contacto!👥</h3>
+      <h3>¡Crea un perfil con tus datos de contacto!<span role="img" aria-label="sheep">👥</span></h3>
     </div>
     <div>
-      <h3>¡Sube las fotos y descripciones de tus productos! 👀</h3>
+      <h3>¡Sube las fotos y descripciones de tus productos! <span role="img" aria-label="sheep">👀</span></h3>
     </div>
     <div>
-      <h3>¡Comparte tu perfil para difundir los productos de tu negocio por internet!👌🏼 </h3>
+      <h3>¡Comparte tu perfil para difundir los productos de tu negocio por internet!<span role="img" aria-label="sheep">👌🏼</span></h3>
     </div>
   </Carousel>,
 

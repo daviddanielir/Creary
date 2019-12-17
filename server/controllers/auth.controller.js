@@ -1,3 +1,4 @@
+//USER MODEL
 const Product = require("../models/Products");
 const User = require('../models/User')
 
@@ -5,12 +6,12 @@ exports.signup = async (req, res, next) => {
   console.log(req.body)
   // const file = req.file.secure_url
   res.header('Access-Control-Allow-Origin', 'http://localhost:3001')
-  // res.header('Access-Control-Allow-Origin', 'creary.netlify.com')
   const user = await User.register(
     { ...req.body },
+    // file,
     req.body.password
   )
-  return res.status(201).json({ user })
+  res.status(201).json({ user })
 }
 
 exports.login = (req, res, next) => {
@@ -27,6 +28,8 @@ exports.logout = (req, res, next) => {
   res.clearCookie('connect.sid')
   res.status(200).json({ msg: 'Logged Out' })
 }
+// TERMINA USER MODEL
+/////////////////////
 
 /// AddPhoto MODEL
 

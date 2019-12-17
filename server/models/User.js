@@ -12,7 +12,7 @@ const userSchema = new Schema(
       default:
         "https://microhealth.com/assets/images/illustrations/personal-user-illustration-@2x.png"
     },
-    // file:{}
+    file:String
 
   },
   {
