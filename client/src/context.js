@@ -77,7 +77,7 @@ class MyProvider extends Component {
     window.localStorage.clear()
     this.setState({ loggedUser: false, user: {} })
     cb()
-    Swal.fire(`Hasta pronto `)
+    Swal.fire(`Hasta pronto 👋🏻 `)
 
   }
 

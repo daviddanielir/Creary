@@ -16,8 +16,8 @@ code {
 
 
 .prueba{
-  color: #99a87b;
-  color: #d79737;
+  color: #2fbe6b;
+  color: #add6ca;
   display: block;
   justify-content: space-between;
   
@@ -27,8 +27,16 @@ code {
   font-size: 30px;
   justify-content: center;
   
+
+  justify-content: space-between;
+  align-items: flex-start;
+  display: block;
+  flex-wrap: wrap;
+  margin-top: 20px;
+font-size: 20px;
   
-  
+
+  justify-content: space-around;
   
   
   

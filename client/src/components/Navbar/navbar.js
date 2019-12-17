@@ -106,6 +106,9 @@ function Navbar(props) {
           </StyledNavbar>
         )
       }}
+
+
+      
     </MyContext.Consumer>
   )
 }
