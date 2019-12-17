@@ -20,7 +20,7 @@ const StyledNavbar = styled.nav`
   padding: 0 40px;
 
   & a {
-    padding: 5px;
+    padding: 7px;
     color: gray
     text-decoration: none;
   }

@@ -30,15 +30,15 @@ exports.logout = (req, res, next) => {
 
 /// AddPhoto MODEL
 
-exports.addPhotoView = (req, res) => {
-  const products = await Products.findById(req.product._id)
-  res.status(200).json({ products })
-}
+// exports.addPhotoView = (req, res) => {
+//   const products = await Products.findById(req.product._id)
+//   res.status(200).json({ products })
+// }
 
 exports.addProduct = async (req, res) => {
   const { nameproduct, descriptionproduct } = req.body;
   const { secure_url } = req.file;
-
+ 
   await Product.create({
     nameproduct,
     descriptionproduct,
@@ -53,3 +53,5 @@ exports.homeView = async (req, res) => {
 };
 
 /// TERMINA ADDPHOTO MODEL
+
+

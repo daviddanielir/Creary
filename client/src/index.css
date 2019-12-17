@@ -16,13 +16,16 @@ code {
 
 
 .prueba{
-  color: #a1d737;
+  color: #99a87b;
   color: #d79737;
   display: block;
   justify-content: space-between;
   
   visibility: hidden;
- 
+  align-items: center;
+  display: flex;
+  font-size: 30px;
+  justify-content: center;
   
   
   
