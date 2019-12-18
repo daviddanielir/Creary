@@ -2,7 +2,6 @@ import axios from 'axios'
 
 // const baseURL = 'https://git.heroku.com/amar-anto.git'
 const baseURL = 'http://localhost:3000'
-
 const service = axios.create({
   baseURL,
   withCredentials: true

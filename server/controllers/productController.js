@@ -1,15 +1,14 @@
-const Product = require("../models/Products");
+const Products = require("../models/Products");
 
 exports.createProduct = async (req, res) => {
-    const {  productname, photo, description } = req.body;
-    const product = await Product.create({ 
-      productname, 
-        photo,
-        description
-    });
-  
-    res.status(201).json(product);
-  };
+    console.log(req.body)
+  res.header('Access-Control-Allow-Origin', 'http://localhost:3001')
+  const product = await Products.create(
+    { ...req.body },
+  )
+  res.status(201).json({ product })
+};
+
 
 exports.getProducts = async (req,res) => {
     const products = await Product.find().populate("products");
@@ -19,14 +18,14 @@ exports.getProducts = async (req,res) => {
 exports.getProduct = async (req, res) => {
     const {id} = res.params;
     const product = await Product.findById(id).populate("products");
-    res.status(200).json(product);
+    res.status(200).json({product});
 };
 
 exports.updateProduct = async (req, res) =>{
-    const  { productname, photo, description} = req.body;
+    const  { nameproduct, photo, descriptionproduct} = req.body;
     const {id} = req.params;
-    const product = Product.findByIdAndUpdate (id, { productname, photo, description})
-    res.status(200).json(product);
+    const product = Product.findByIdAndUpdate (id, { nameproduct, photo, descriptionproduct})
+    res.status(200).json({product});
 };
 
 exports.deleteProduct = async (req, res) => {

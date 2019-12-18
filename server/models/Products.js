@@ -7,9 +7,11 @@ const productSchema = new Schema(
       descriptionproduct: String,
       photo: String,
     },
+    {
+      timestamps: true,
+      versionKey: false
+    }
     
   )
   
-  
-  
-  module.exports = model('Product', productSchema)
+  module.exports = model('Products', productSchema)

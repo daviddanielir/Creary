@@ -1,6 +1,5 @@
-const express = require("express");
-const router = express.Router();
-const upload = require('../cloudinary/cloudinary');
+const router = require('express').Router()
+const upload = require('../config/Cloudinary')
 
 const{
   createProduct,
@@ -11,10 +10,10 @@ const{
 
 
 // Product
-router.get('/addProduct',(getProducts));
-router.get('/addProduct/:id',(getProduct));
-router.post('/addProduct',(createProduct));
-router.patch('/addProduct/:id',(updateProduct));
+router.get('/products', getProducts)
+router.get('/products/:id', getProduct)
+router.post('/products', createProduct)
+router.patch('/products/:id', updateProduct)
 
 
 //upload photos

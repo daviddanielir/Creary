@@ -11,17 +11,14 @@ const StyledAddProduct = styled.div`
 
 export default function AddProduct(props) {
   return (
-    
-    <>
 <MyContext.Consumer>
       {context => (
         <StyledAddProduct>
         <Form  
-            onSubmit={ e => {
+            onSubmit= { e => {
             context.handleCreateProduct(e)
             props.history.push('/products')
         }}
-
         >
           <Form.Item>
             <Input
@@ -46,8 +43,8 @@ export default function AddProduct(props) {
           </Form.Item>   
 
           <div>
-            <div className="file"></div>
-                <input onChange={e => context.handleFile(e, 'formAddProduct')} type="file" name="file" />
+            <div className="photo"></div>
+                <input onChange={e => context.handleFile(e, 'formAddProduct')} type="file" name="photo" value={context.formAddProduct.photo} />
              
             </div>
 
@@ -60,10 +57,6 @@ export default function AddProduct(props) {
       </StyledAddProduct>
       )}
     </MyContext.Consumer>
-  
-
-
-</>
   )
 }
 
