@@ -1,10 +1,11 @@
 const Products = require("../models/Products");
 
 exports.createProduct = async (req, res) => {
-    console.log(req.body)
-  res.header('Access-Control-Allow-Origin', 'http://localhost:3001')
+
+    const  {secure_url} = req.file;
+
   const product = await Products.create(
-    { ...req.body },
+    { ...req.body, photo: secure_url },
   )
   res.status(201).json({ product })
 };

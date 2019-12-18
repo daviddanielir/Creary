@@ -86,22 +86,17 @@ class MyProvider extends Component {
   }
   /// MODELO PRODUCTO
   
-  handleCreateProduct = async e => {
+  handleCreateProduct = async (e,key) => {
     e.preventDefault()
   const formData = new FormData()
   for (let key in this.state.formAddProduct) {
+    console.log(key, this.state.formAddProduct[key])
     formData.append(key, this.state.formAddProduct[key])
   }
-  formData.append('photo', this.state.formAddProduct.photo)
+  formData.append('photo', this.state.file)
   const { data } = await ProductService.createProduct(formData)
   Swal.fire(`producto creado ${data.user} jijiji`)
 }
-  // handleCreateProduct = async e => {
-  //   e.preventDefault()
-  //   const {data} = await ProductService.createProduct(this.state.formAddProduct)
-  //   Swal.fire(`Patient ${data.user.name} created`)
-  // }
-
 
   handleFile = e => {
     this.setState({ file: e.target.files[0] })

@@ -44,7 +44,7 @@ export default function AddProduct(props) {
 
           <div>
             <div className="photo"></div>
-                <input onChange={e => context.handleFile(e, 'formAddProduct')} type="file" name="photo" value={context.formAddProduct.photo} />
+                <input onChange={context.handleFile} type="file" name="photo"  />
              
             </div>
 

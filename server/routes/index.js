@@ -12,7 +12,7 @@ const{
 // Product
 router.get('/products', getProducts)
 router.get('/products/:id', getProduct)
-router.post('/products', createProduct)
+router.post('/products',upload.single('photo'), createProduct)
 router.patch('/products/:id', updateProduct)
 
 
