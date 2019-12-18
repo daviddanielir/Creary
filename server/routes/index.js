@@ -1,28 +1,28 @@
-const router = require('express').Router()
-const upload = require('../config/cloudinary')
-const passport = require('passport')
-const uploadCloud = require("../config/cloudinary");
-const {
-  signup,
-  login,
-  logout,
-  getUser,
-  addProduct,
-  homeView,
-} = require('../controllers/auth.controller')
+const express = require("express");
+const router = express.Router();
+const upload = require('../cloudinary/cloudinary');
 
-router.post('/signup', upload.single('photo'), signup)
-router.post('/login', passport.authenticate('local'), login)
-router.get('/profile', getUser)
-router.get('/logout', logout)
-
-router.get("/addproduct", addProduct);
-router.post("/addproduct", uploadCloud.single("products"));
-router.get('/products', homeView)
+const{
+  createProduct,
+  getProduct,
+  updateProduct,
+  getProducts
+} = require('../controllers/productController');
 
 
+// Product
+router.get('/addProduct',(getProducts));
+router.get('/addProduct/:id',(getProduct));
+router.post('/addProduct',(createProduct));
+router.patch('/addProduct/:id',(updateProduct));
 
-module.exports = router
+
+//upload photos
 
 
+router.post('/upload', upload.single('photo'), (req, res, next) => {
+  res.header('Access-Control-Allow-Origin', 'http://localhost:3001')
+  res.status(201).json({ file: req.file, data: { ...req.body } })
+})
 
+module.exports = router;

@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components' 
 import { Card } from 'antd';
-import { Link } from 'react-router-dom'
+// import { Link } from 'react-router-dom'
 import { MyContext } from '../../context'
 
 const StyledProducts = styled.div`
@@ -20,11 +20,12 @@ export default function Products() {
   <div> Lista de Productos</div>
   <Card>
           <h1>Productos</h1>
-          {Products.map(products => (
-            <Link key={products.id} to={`/products/${products.id}`}>
-              <img src={products.image} alt={products.name} width="80px" />
+          {/* {Products.map(products => (
+            <p> Bienvenido {context.product.nameproduct}</p>
+            <p> Bienvenido {context.product.descriptionproduct}</p>
+              <img src={context.product.photo} alt={context.product.nameproduct} width="80px" />
             </Link>
-          ))}
+          ))} */}
         </Card>
 
   </StyledProducts>

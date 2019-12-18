@@ -1,6 +1,8 @@
 import React, { Component, createContext } from 'react'
 import AUTH_SERVICE from './services/AuthService'
 import Swal from 'sweetalert2'
+import ProductService from './services/productsService'
+import axios from 'axios'
 
 
 export const MyContext = createContext()
@@ -14,18 +16,20 @@ class MyProvider extends Component {
       email: '',
       password: '',
       companyname:'',
+      description:'',
       number: '',
-      file: '',
-
+      file: {}
+      
     },
     loginForm: {
       email: '',
       password: ''
     },
-    formAddProduct:{
+
+    formAddProduct: {
       nameproduct:'',
       descriptionproduct:'',
-      photoURL: '',
+      photo:'',
     },
     user: {}
   }
@@ -81,22 +85,28 @@ class MyProvider extends Component {
 
   }
 
+  handleCreateProduct = async e => {
+    e.preventDefault()
+    const {data} = await ProductService.createProduct(this.state.formAddProduct)
+    Swal.fire(`Patient ${data.user.name} created`)
+  }
+
+
   handleFile = e => {
     this.setState({ file: e.target.files[0] })
   }
-
-
-  handleAddProduct = async e => {
+  
+  handleSubmit = async e => {
     e.preventDefault()
     const formData = new FormData()
-    for (let key in this.state.formAddProduct) {
-      formData.append(key, this.state.formAddProduct[key])
+    for (let key in this.state.fakeData) {
+      formData.append(key, this.state.fakeData[key])
     }
     formData.append('photo', this.state.file)
-    const { data } = await AUTH_SERVICE.addProduct  (formData)
-    Swal.fire(`Producto agregado.. nombre de producto ${data.user.name}`, 'Ahora puedes iniciar sesion', 'success')
+    const { data } = await axios.post('http://localhost:3000/upload', formData)
+    console.log(data)
   }
-
+  
 
 
 
@@ -112,8 +122,9 @@ class MyProvider extends Component {
           handleSignup: this.handleSignup,
           handleLogin: this.handleLogin,
           handleLogout: this.handleLogout,
+          handleCreateProduct: this.handleCreateProduct,
           handleFile: this.handleFile,
-          handleAddProduct: this.handleAddProduct,
+          handleSubmit: this.handleSubmit,
           user: this.state.user
 
         }}

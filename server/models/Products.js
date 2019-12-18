@@ -1,15 +1,15 @@
-const { model, Schema } = require("mongoose");
+const { Schema, model } = require('mongoose')
+const PLM = require('passport-local-mongoose')
 
-
-const products = new Schema(
-  {
-    nameproduct: String,
-    descriptionproduct: String,
-    imgPath: String
-  },
-  { timestamps: true }
-);
-
-module.exports = model("Products", products);
-
-
+const productSchema = new Schema(
+    {
+      nameproduct: String,
+      descriptionproduct: String,
+      photo: String,
+    },
+    
+  )
+  
+  
+  
+  module.exports = model('Product', productSchema)

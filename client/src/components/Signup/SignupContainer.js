@@ -8,7 +8,7 @@ export default function SignupContainer(props) {
     <MyContext.Consumer>
       {context => (
         <Form
-          onSubmit={e => {
+          onSubmit={ e => {
             context.handleSignup(e)
             props.history.push('/login')
           }}
@@ -31,6 +31,16 @@ export default function SignupContainer(props) {
               placeholder="Companyname"
               type="text"
               value={context.formSignup.companyname}
+              onChange={e => context.handleInput(e, 'formSignup')}
+            />
+          </Form.Item>
+          <Form.Item>
+            <Input
+              name="description"
+              prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />}
+              placeholder="Descripcíon de tu empresa"
+              type="text"
+              value={context.formSignup.description}
               onChange={e => context.handleInput(e, 'formSignup')}
             />
           </Form.Item>
@@ -71,12 +81,14 @@ export default function SignupContainer(props) {
 
            <div>
             <input onChange={context.handleFile} type="file" name="file" />
-            <input onClick={context.handleSignup} type="submit" value="Send photo"  hidden/>
             </div>
-    
+
+            {/* <div>
+            <input onChange= {e => context.handleFile(e, 'formSignup')} type="file" name="file" />
+            </div> */}
     
           <Form.Item>
-            <Button type="primary" htmlType="submit" onClick={context.handleSignup} type="submit" value="Send photo">
+            <Button type="primary" htmlType="submit" >
               Signup
             </Button>
           </Form.Item>
@@ -85,6 +97,5 @@ export default function SignupContainer(props) {
     </MyContext.Consumer>
   )
 }
-
 
 

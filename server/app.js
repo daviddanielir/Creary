@@ -51,6 +51,6 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(cookieParser())
 
-app.use('/', require('./routes/index'))
+app.use('/', require('./routes/auth'))
 
 module.exports = app

@@ -12,7 +12,7 @@ const storage = cloudinaryStorage({
   cloudinary,
   folder: "creary",
   allowedFormats: ["jpg", "png",],
-  filename: (req, file, done) => done(null, file)
+  filename: (req, file, done) => done(null, file.originalname)
 });
 
 module.exports = multer({ storage });

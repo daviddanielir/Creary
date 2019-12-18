@@ -21,13 +21,6 @@ const AUTH_SERVICE = {
   logout: () => {
     return service.get('/logout')
   },
-  addProduct: data => {
-    return service.post('/addProduct', data)
-  },
-
-  products: data => {
-  return service.post('/products', data)
-},
 }
 
 

@@ -5,6 +5,7 @@ const userSchema = new Schema(
   {
     name: String,
     companyname: String,
+    description: String,
     number: Number,
     email: String,
     photoURL: {
@@ -12,7 +13,7 @@ const userSchema = new Schema(
       default:
         "https://microhealth.com/assets/images/illustrations/personal-user-illustration-@2x.png"
     },
-    file:String
+    file: String
 
   },
   {

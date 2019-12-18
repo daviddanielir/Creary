@@ -25,6 +25,7 @@ Muchos no estamos interesados en tener ventas Online, con pagos o depositos banc
 
 const StyledHome = styled.div`
 padding: 0 10px;
+text-align: center;
 .ant-carousel .slick-slide {
   text-align: center;
   display: flex;

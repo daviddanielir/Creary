@@ -16,12 +16,13 @@ export default function AddProduct(props) {
 <MyContext.Consumer>
       {context => (
         <StyledAddProduct>
-        <Form
-        onSubmit={e => {
-          context.handleAddProduct(e)
-            props.history.push('/AddProduct')
-          }}
-          >
+        <Form  
+            onSubmit={ e => {
+            context.handleCreateProduct(e)
+            props.history.push('/products')
+        }}
+
+        >
           <Form.Item>
             <Input
                 name="nameproduct"
@@ -44,11 +45,11 @@ export default function AddProduct(props) {
             />
           </Form.Item>   
 
-
           <div>
-            <input onChange={context.handleFile} type="file" name="imgPath" />
-            <input onClick={context.handleAddProduct} type="submit" value="Send photo" />
-            </div> 
+            <div className="file"></div>
+                <input onChange={e => context.handleFile(e, 'formAddProduct')} type="file" name="file" />
+             
+            </div>
 
           <Form.Item>
             <Button type="primary" htmlType="submit" >
@@ -65,6 +66,9 @@ export default function AddProduct(props) {
 </>
   )
 }
+
+
+
 
 
 
