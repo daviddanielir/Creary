@@ -33,7 +33,7 @@ export default class Services extends Component {
     {context => {
       return (
   <StyledServices>
-<h1>Services</h1>
+
   {context.services.map((p, i) => (
     <>
     <div>

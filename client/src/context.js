@@ -43,13 +43,14 @@ class MyProvider extends Component {
   }
 
   componentDidMount() {
+    if (document.cookie) {
       AUTH_SERVICE.getUser()
         .then(({ data }) => {
           this.setState({ loggedUser: true, user: data.user })
           Swal.fire(`Welcome back ${data.user.name} `, '', 'success')
         })
         .catch(err => console.log(err))
-    
+    }
   }
 
   handleInput = (e, obj) => {

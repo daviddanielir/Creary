@@ -15,12 +15,12 @@ const AUTH_SERVICE = {
   login: data => {
     return service.post('/login', data)
   },
-  getUser: (data) => {
-    return service.get('/profile', data)
+  getUser: () => {
+    return service.get('/profile')
   },
   logout: () => {
     return service.get('/logout')
-  },
+  }
 }
 
 

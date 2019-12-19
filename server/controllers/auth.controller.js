@@ -17,10 +17,10 @@ exports.login = (req, res, next) => {
   res.status(200).json({ user: req.user })
 }
 
-exports.getUser = async (req, res) =>{
-  const users= await User.find().populate("users");
-  res.status(200).json({users});
-};
+exports.getUser = async (req, res, next) => {
+  const user = await User.findById(req.user._id)
+  res.status(200).json({ user })
+}
 
 exports.logout = (req, res, next) => {
   req.logout()
