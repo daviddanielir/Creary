@@ -20,12 +20,13 @@ code {
   color: #add6ca;
   display: block;
   justify-content: space-between;
-  
+  margin-right: 9px;
   visibility: hidden;
   align-items: center;
   display: flex;
   font-size: 30px;
   justify-content: center;
+  justify-items: center;
   
 
   justify-content: space-between;
@@ -37,9 +38,10 @@ font-size: 20px;
 min-width: 40px;
 max-width: 40px;
 max-height: 500px;
-
+align-content: center;
 justify-content: space-evenly;
   justify-content: space-around;
+box-sizing: border-box;
   
   
   

@@ -17,8 +17,8 @@ const ServiceService = {
   updateService: (data) => {
     return service.get('/services',data)
   },
-  getServices: () => {
-return service.get('/services')
+  getServices: async () => {
+    return service.get('/services')
   }
 }
 

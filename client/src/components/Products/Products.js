@@ -6,18 +6,17 @@ import { MyContext } from '../../context'
 
 const StyledProducts = styled.div`
   color: #d79737;
+  box-sizing: border-box;
+  justify-items: center;
+  
   & div {
     display: flex;
     display: inline-block;
     flex-wrap: wrap;
-    justify-content: space-evenly;
+    justify-content: space-between;
     margin-top: 20px;
-    max-width: 300px;
-    max-height: 400px;
-    & img{
-      max-width: 250px;
-    max-height: 230px;
-    }
+    margin-right: 9px;
+    margin-left: 15px;
   }
 
 `

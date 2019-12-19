@@ -1,34 +1,34 @@
-const Products = require("../models/Services");
+const Services = require("../models/Services");
 
-exports.createProduct = async (req, res) => {
+exports.createService = async (req, res) => {
     const  {secure_url} = req.file;
-  const product = await Products.create(
+  const service = await Services.create(
     { ...req.body, photo: secure_url },
   )
-  res.status(201).json({ product })
+  res.status(201).json({ service })
 };
 
 
-exports.getProducts = async (req,res) => {
-    const products = await Product.find().populate("products");
-    res.status(200).json({products});
+exports.getServices = async (req,res) => {
+    const services = await Services.find()
+    res.status(200).json({services});
 };
 
-exports.getProduct = async (req, res) => {
+exports.getService = async (req, res) => {
     const {id} = res.params;
-    const product = await Product.findById(id).populate("products");
-    res.status(200).json({product});
+    const service = await Service.findById(id).populate("services");
+    res.status(200).json({service});
 };
 
-exports.updateProduct = async (req, res) =>{
-    const  { nameproduct, photo, descriptionproduct} = req.body;
+exports.updateService = async (req, res) =>{
+    const  { nameservice, photo, descriptionservice} = req.body;
     const {id} = req.params;
-    const product = Product.findByIdAndUpdate (id, { nameproduct, photo, descriptionproduct})
-    res.status(200).json({product});
+    const service = Service.findByIdAndUpdate (id, { nameservice, photo, descriptionservice})
+    res.status(200).json({service});
 };
 
-exports.deleteProduct = async (req, res) => {
+exports.deleteService = async (req, res) => {
     const { id } = req.params;
-    await Product.findByIdAndDelete(id);
-    res.status(200).json({mesaje: "Product eleiminado"})
+    await Service.findByIdAndDelete(id);
+    res.status(200).json({mesaje: "Service eleiminado"})
 }

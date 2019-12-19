@@ -53,6 +53,6 @@ app.use(cookieParser())
 
 app.use('/', require('./routes/auth'))
 app.use('/', require('./routes'))
-// app.use('/', require('./routes/indexService'))
+app.use('/', require('./routes/indexService'))
 
 module.exports = app

@@ -2,6 +2,7 @@ import React, { Component, createContext } from 'react'
 import AUTH_SERVICE from './services/AuthService'
 import Swal from 'sweetalert2'
 import ProductService from './services/productsService'
+import ServiceService from './services/servicesService'
 import axios from 'axios'
 
 
@@ -31,8 +32,14 @@ class MyProvider extends Component {
       descriptionproduct:'',
       photo:'',
     },
+    formAddService: {
+      nameservice:'',
+      descriptionservice:'',
+      photo:'',
+    },
     user: {},
-    products: []
+    products: [],
+    services: []
   }
 
   componentDidMount() {
@@ -102,6 +109,27 @@ class MyProvider extends Component {
     this.setState({products:data.products})
   }
 
+  /////
+
+  handleCreateService = async (e) => {
+    e.preventDefault()
+
+  const formData = new FormData()
+  for (let key in this.state.formAddService) {
+    formData.append(key, this.state.formAddService[key])
+  }
+  formData.append('photo', this.state.file)
+  const { data } = await ServiceService.createService(formData)
+  Swal.fire(`Creaste el servicio : ${data.service.nameservice} `)
+  }
+
+
+  handleGetServices = async () => {
+    const {data} = await ServiceService.getServices()
+    this.setState({services:data.services})
+  }
+  ////
+
   handleFile = e => {
     this.setState({ file: e.target.files[0] })
   }
@@ -128,17 +156,21 @@ class MyProvider extends Component {
           loggedUser: this.state.loggedUser,
           formSignup: this.state.formSignup,
           formAddProduct: this.state.formAddProduct,
+          formAddService: this.state.formAddService,
           loginForm: this.state.loginForm,
           handleInput: this.handleInput,
           handleSignup: this.handleSignup,
           handleLogin: this.handleLogin,
           handleLogout: this.handleLogout,
           handleCreateProduct: this.handleCreateProduct,
+          handleCreateService: this.handleCreateService,
           handleFile: this.handleFile,
           handleSubmit: this.handleSubmit,
           handleGetProducts: this.handleGetProducts,
+          handleGetServices: this.handleGetServices,
           user: this.state.user,
-          products: this.state.products
+          products: this.state.products,
+          services: this.state.services
 
         }}
       >

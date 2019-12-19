@@ -48,7 +48,7 @@ function Navbar(props) {
 
             {context.loggedUser && ( 
             <NavLink exact to="/profile" activeClassName="navbar-active">
-              Profile
+              Perfil
             </NavLink>
             )}
 
@@ -60,14 +60,26 @@ function Navbar(props) {
 
            
             <NavLink exact to="/products" activeClassName="navbar-active">
-              Products
+              Productos
             </NavLink>
             
            
             
             {context.loggedUser && ( 
             <NavLink exact to="/addProduct" activeClassName="navbar-active">
-              Create Products
+              Crear Productos
+            </NavLink>
+            )}
+
+            <NavLink exact to="/services" activeClassName="navbar-active">
+              Servicio
+            </NavLink>
+            
+           
+            
+            {context.loggedUser && ( 
+            <NavLink exact to="/addService" activeClassName="navbar-active">
+              Crear Servicio
             </NavLink>
             )}
 

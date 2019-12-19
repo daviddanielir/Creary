@@ -53,7 +53,7 @@ export default function Profile() {
 
 
 <p>  Mi empresa es: {context.user.companyname}</p>
-<p> y vendo: {context.user.description}</p>
+<p> y mi empresa se dedica a: {context.user.description}</p>
 
   </Card>
   </form>

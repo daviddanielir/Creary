@@ -24,7 +24,7 @@ export default function AddService(props) {
             <Input
                 name="nameservice"
                 prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />}
-                placeholder="Servicio"
+                placeholder="Service"
                 type="text"
               value={context.formAddService.nameservice}
               onChange={e => context.handleInput(e, 'formAddService')}
