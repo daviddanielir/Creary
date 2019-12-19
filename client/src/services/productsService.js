@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-// const baseURL = 'https://git.heroku.com/amar-anto.git'
+// const baseURL = 'https://creary.herokuapp.com/'
 const baseURL = 'http://localhost:3000'
 const service = axios.create({
   baseURL,
@@ -17,6 +17,9 @@ const ProductService = {
   updateProduct: (data) => {
     return service.get('/products',data)
   },
+  getProducts: async () => {
+    return service.get('/products')
+  }
 }
 
 

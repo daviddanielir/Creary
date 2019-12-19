@@ -3,9 +3,11 @@ const User = require('../models/User')
 
 exports.signup = async (req, res, next) => {
   console.log(req.body)
+  const  {secure_url} = req.file;
   res.header('Access-Control-Allow-Origin', 'http://localhost:3001')
+  // res.header('Access-Control-Allow-Origin', 'https://creary.netlify.com')
   const user = await User.register(
-    { ...req.body },
+    { ...req.body, file: secure_url },
     req.body.password
   )
   res.status(201).json({ user })

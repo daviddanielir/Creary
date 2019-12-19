@@ -18,7 +18,7 @@ class MyProvider extends Component {
       companyname:'',
       description:'',
       number: '',
-      file: {}
+      file: '',
       
     },
     loginForm: {
@@ -31,18 +31,18 @@ class MyProvider extends Component {
       descriptionproduct:'',
       photo:'',
     },
-    user: {}
+    user: {},
+    products: []
   }
 
   componentDidMount() {
-    if (document.cookie) {
       AUTH_SERVICE.getUser()
         .then(({ data }) => {
           this.setState({ loggedUser: true, user: data.user })
           Swal.fire(`Welcome back ${data.user.name} `, '', 'success')
         })
         .catch(err => console.log(err))
-    }
+    
   }
 
   handleInput = (e, obj) => {
@@ -84,19 +84,23 @@ class MyProvider extends Component {
     Swal.fire(`Hasta pronto 👋🏻 `)
 
   }
-  /// MODELO PRODUCTO
-  
-  handleCreateProduct = async (e,key) => {
+
+  handleCreateProduct = async (e) => {
     e.preventDefault()
+
   const formData = new FormData()
   for (let key in this.state.formAddProduct) {
-    console.log(key, this.state.formAddProduct[key])
     formData.append(key, this.state.formAddProduct[key])
   }
   formData.append('photo', this.state.file)
   const { data } = await ProductService.createProduct(formData)
-  Swal.fire(`producto creado ${data.user} jijiji`)
-}
+  Swal.fire(`Creaste el producto : ${data.product.nameproduct} `)
+  }
+
+  handleGetProducts = async () => {
+    const {data} = await ProductService.getProducts()
+    this.setState({products:data.products})
+  }
 
   handleFile = e => {
     this.setState({ file: e.target.files[0] })
@@ -109,6 +113,7 @@ class MyProvider extends Component {
       formData.append(key, this.state.fakeData[key])
     }
     formData.append('photo', this.state.file)
+    // const { data } = await axios.post('https://creary.herokuapp.com/upload', formData)
     const { data } = await axios.post('http://localhost:3000/upload', formData)
     console.log(data)
   }
@@ -131,7 +136,9 @@ class MyProvider extends Component {
           handleCreateProduct: this.handleCreateProduct,
           handleFile: this.handleFile,
           handleSubmit: this.handleSubmit,
-          user: this.state.user
+          handleGetProducts: this.handleGetProducts,
+          user: this.state.user,
+          products: this.state.products
 
         }}
       >

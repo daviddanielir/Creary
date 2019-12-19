@@ -29,7 +29,7 @@ app.use(
     origin: [
       'http://localhost:3000',
       'http://localhost:3001',
-      'creary.netlify.com'
+      'https://creary.netlify.com'
     ]
   })
 )
@@ -52,6 +52,7 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use(cookieParser())
 
 app.use('/', require('./routes/auth'))
-app.use('/', require('./routes/'))
+app.use('/', require('./routes'))
+// app.use('/', require('./routes/indexService'))
 
 module.exports = app

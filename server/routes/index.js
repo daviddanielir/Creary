@@ -21,6 +21,7 @@ router.patch('/products/:id', updateProduct)
 
 router.post('/upload', upload.single('photo'), (req, res, next) => {
   res.header('Access-Control-Allow-Origin', 'http://localhost:3001')
+  // res.header('Access-Control-Allow-Origin', 'https://creary.netlify.com')
   res.status(201).json({ file: req.file, data: { ...req.body } })
 })
 

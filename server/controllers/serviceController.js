@@ -1,4 +1,4 @@
-const Products = require("../models/Products");
+const Products = require("../models/Services");
 
 exports.createProduct = async (req, res) => {
     const  {secure_url} = req.file;
@@ -10,7 +10,7 @@ exports.createProduct = async (req, res) => {
 
 
 exports.getProducts = async (req,res) => {
-    const products = await Products.find()
+    const products = await Product.find().populate("products");
     res.status(200).json({products});
 };
 

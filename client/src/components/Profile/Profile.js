@@ -47,6 +47,7 @@ export default function Profile() {
   <Card
     hoverable
     style={{ width: 240 }}
+    cover={<img alt="example" src= {context.user.file} />}
   >
 
 
@@ -54,7 +55,7 @@ export default function Profile() {
 <p>  Mi empresa es: {context.user.companyname}</p>
 <p> y vendo: {context.user.description}</p>
 
-  </Card>,
+  </Card>
   </form>
   </StyledProfile>
    )

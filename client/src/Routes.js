@@ -6,6 +6,8 @@ import LoginContainer from './components/Login/LoginContainer'
 import Home from './components/Home/Home'
 import Products from './components/Products/Products'
 import AddProduct from './components/AddProduct/AddProduct'
+import Services from './components/Services/Services'
+import AddService from './components/AddService/AddService'
 import Profile from './components/Profile/Profile'
 
 
@@ -22,6 +24,8 @@ function Routes() {
         <Route exact path="/profile" component={Profile} />
           <Route exact path="/products" component={Products} />
           <Route exact path="/addProduct" component={AddProduct} />
+          <Route exact path="/services" component={Services} />
+          <Route exact path="/addService" component={AddService} />
 
       </Switch>
     </BrowserRouter>

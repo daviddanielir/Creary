@@ -8,12 +8,12 @@ const userSchema = new Schema(
     description: String,
     number: Number,
     email: String,
+    file: String,
     photoURL: {
       type: String, 
       default:
         "https://microhealth.com/assets/images/illustrations/personal-user-illustration-@2x.png"
     },
-    file: String
 
   },
   {

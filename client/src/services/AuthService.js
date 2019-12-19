@@ -1,7 +1,8 @@
 import axios from 'axios'
 
-// const baseURL = 'https://git.heroku.com/amar-anto.git'
+// const baseURL = 'https://creary.herokuapp.com/'
 const baseURL = 'http://localhost:3000'
+
 const service = axios.create({
   baseURL,
   withCredentials: true
@@ -15,7 +16,7 @@ const AUTH_SERVICE = {
     return service.post('/login', data)
   },
   getUser: (data) => {
-    return service.get('/profile',data)
+    return service.get('/profile', data)
   },
   logout: () => {
     return service.get('/logout')

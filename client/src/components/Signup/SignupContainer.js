@@ -79,8 +79,10 @@ export default function SignupContainer(props) {
           </Form.Item>
 
 
-           <div>
-            <input onChange={context.handleFile} type="file" name="file" />
+          <div>
+            <div className="file"></div>
+                <input onChange={context.handleFile} type="file" name="file"  />
+             
             </div>
 
             {/* <div>
